@@ -61,7 +61,7 @@
                 <div class="flex flex-col items-center shrink-0">
                     <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full shadow-[0_10px_30px_rgb(0,0,0,0.1)] flex items-center justify-center bg-white/70 backdrop-blur-md overflow-hidden relative group border-2 border-orange-100">
                         <img 
-                            src="images/vasavimathaimage.png" 
+                            src="images/header/vasavimathaimage.png" 
                             alt="Vasavi Matha" 
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
@@ -115,7 +115,7 @@
                 <div class="flex flex-col items-center shrink-0">
                     <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full shadow-[0_10px_30px_rgb(0,0,0,0.1)] flex items-center justify-center bg-white/70 backdrop-blur-md overflow-hidden relative">
                         <img 
-                            src="images/JAVASBuildingimage.jpeg" 
+                            src="images/header/JAVASBuildingimage.jpeg" 
                             alt="JAVAS building img"
                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                         />
@@ -1070,45 +1070,52 @@
             <script>
                 (function() {
                     const initCarousels = () => {
-                        // Find all gallery wrappers
-                        const galleries = document.querySelectorAll('.gallery-wrapper');
+                    const galleries = document.querySelectorAll('.gallery-wrapper');
 
-                        galleries.forEach(gallery => {
-                            const container = gallery.querySelector('.carousel-container');
-                            const next = gallery.querySelector('.next-btn');
-                            const prev = gallery.querySelector('.prev-btn');
+                    galleries.forEach(gallery => {
+                        const container = gallery.querySelector('.carousel-container');
+                        const next = gallery.querySelector('.next-btn');
+                        const prev = gallery.querySelector('.prev-btn');
 
-                            if (!container || !next || !prev) return;
+                        if (!container || !next || !prev) return;
 
-                            // Function to determine scroll distance based on item width
-                            const getScrollAmount = () => {
-                                const firstItem = container.querySelector('div');
-                                // Item width + the 24px gap (gap-6 in tailwind)
-                                return firstItem ? firstItem.offsetWidth + 24 : 300;
-                            };
+                        const getScrollAmount = () => {
+                            const firstItem = container.querySelector('div');
+                            return firstItem ? firstItem.offsetWidth + 24 : 300;
+                        };
 
-                            next.addEventListener('click', () => {
+                        next.addEventListener('click', () => {
+                            const maxScroll = container.scrollWidth - container.clientWidth;
+                            
+                            // If we are at the end (or very close to it), loop to the start
+                            if (container.scrollLeft >= maxScroll - 10) {
+                                container.scrollTo({ left: 0, behavior: 'smooth' });
+                            } else {
                                 container.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-                            });
-
-                            prev.addEventListener('click', () => {
-                                container.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-                            });
+                            }
                         });
-                        
-                        // Re-initialize icons if Lucide is present
-                        if (window.lucide) {
-                            lucide.createIcons();
-                        }
-                    };
 
-                    // Initialize when DOM is ready
-                    if (document.readyState === 'loading') {
-                        document.addEventListener('DOMContentLoaded', initCarousels);
-                    } else {
-                        initCarousels();
+                        prev.addEventListener('click', () => {
+                            // If we are at the start, loop to the very end
+                            if (container.scrollLeft <= 10) {
+                                const maxScroll = container.scrollWidth - container.clientWidth;
+                                container.scrollTo({ left: maxScroll, behavior: 'smooth' });
+                            } else {
+                                container.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                            }
+                        });
+                    });
+
+                    if (window.lucide) {
+                        lucide.createIcons();
                     }
-                })();
+                };
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initCarousels);
+                } else {
+                    initCarousels();
+                }
             </script>
 
             <!-- SECTION: CONTACT US -->
@@ -1154,7 +1161,7 @@
                                 </div>
                                 <div>
                                     <h5 class="font-bold text-gray-900 mb-1">Email</h5>
-                                    <p class="text-gray-700 font-medium text-sm">javaskarimnagar@gmail.com</p> <br/>
+                                    <p class="text-gray-700 font-medium text-sm">javaskarimnagar@gmail.com</p>
                                     <p class="text-gray-700 font-medium text-sm">javasvsadan@gmail.com</p>
                                 </div>
                             </div>
