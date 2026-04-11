@@ -28,13 +28,12 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Modern hide scrollbar */
-        #carousel-container {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .carousel-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;    /* Firefox */
         }
-        #carousel-container::-webkit-scrollbar {
-            display: none;
+        .carousel-container::-webkit-scrollbar {
+            display: none;            /* Chrome, Safari and Opera */
         }
     </style>
 </head>
@@ -936,152 +935,133 @@
 
             <!-- SECTION: GALLERY -->
             <section id="GALLERY" class="tab-content hidden-section animate-fade-in py-12">
-
-                <h3 class="text-4xl font-extrabold text-center text-gray-800 mb-12 tracking-tight">image Gallery</h3>
+                <h3 class="text-4xl font-extrabold text-center text-gray-800 mb-12 tracking-tight">Image Gallery</h3>
                 
-                <div class="relative max-w-6xl mx-auto px-4 group">
+                <div class="gallery-wrapper relative max-w-6xl mx-auto px-4 group mb-16">
                     <h4 class="text-xl font-bold text-gray-700 mb-6 px-2">Athmeeya Sammelanam</h4>
-                    <div id="carousel-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 pb-8">
-                        
+                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 pb-8">
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/AS2024/image1.jpg" alt="Event 1" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/AS2024/image1.png" alt="Event 1" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/AS2024/image2.jpg" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/AS2024/image2.png" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/AS2024/image3.jpg" alt="Event 3" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/AS2024/image3.png" alt="Event 3" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/AS2024/image4.jpg" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/AS2024/image4.png" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/AS2024/image5.jpg" alt="Event 1" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/AS2024/image5.png" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/AS2024/image6.jpg" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/AS2024/image6.png" alt="Event 3" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/AS2024/image7.jpg" alt="Event 3" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/AS2024/image7.png" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/AS2024/image8.jpg" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/AS2024/image8.png" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
 
-                    <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
+                    <button class="prev-btn absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
                         <i data-lucide="chevron-left"></i>
                     </button>
-                    <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
+                    <button class="next-btn absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
                         <i data-lucide="chevron-right"></i>
                     </button>
                 </div>
 
-                <div class="relative max-w-6xl mx-auto px-4 group">
+                <div class="gallery-wrapper relative max-w-6xl mx-auto px-4 group mb-16">
                     <h4 class="text-xl font-bold text-gray-700 mb-6 px-2">Shashti Poorthi Celebrations</h4>
-                    <div id="carousel-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 pb-8">
-                        
+                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 pb-8">
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/SP/image1.jpg" alt="Event 1" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/SP/image1.png" alt="Event 1" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/SP/image2.jpg" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/SP/image2.png" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/SP/image3.jpg" alt="Event 3" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/SP/image3.png" alt="Event 3" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/SP/image4.jpg" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/SP/image4.png" alt="Event 1" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/SP/image5.jpg" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/SP/image5.png" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
 
-                    <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
+                    <button class="prev-btn absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
                         <i data-lucide="chevron-left"></i>
                     </button>
-                    <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
+                    <button class="next-btn absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
                         <i data-lucide="chevron-right"></i>
                     </button>
                 </div>
 
-                <div class="relative max-w-6xl mx-auto px-4 group">
+                <div class="gallery-wrapper relative max-w-6xl mx-auto px-4 group">
                     <h4 class="text-xl font-bold text-gray-700 mb-6 px-2">Marriage Day Celebrations</h4>
-                    <div id="carousel-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 pb-8">
-                        
+                    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 pb-8">
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/MD/image1.jpg" alt="Event 1" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/MD/image1.png" alt="Event 1" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/MD/image2.jpg" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/MD/image2.png" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/MD/image3.jpg" alt="Event 3" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/MD/image3.png" alt="Event 1" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/MD/image4.jpg" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/MD/image4.png" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
-
                         <div class="snap-center shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                             <div class="group relative aspect-square bg-white/40 backdrop-blur-xl rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] overflow-hidden cursor-pointer hover:shadow-[0_20px_50px_rgb(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-500">
-                                <img src="_images_/MD/image5.jpg" alt="Event 4" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="_images_/MD/image5.png" alt="Event 2" class="absolute inset-0 w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
 
-                    <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
+                    <button class="prev-btn absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
                         <i data-lucide="chevron-left"></i>
                     </button>
-                    <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
+                    <button class="next-btn absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-xl text-orange-500 opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-300 z-10 hover:bg-orange-50">
                         <i data-lucide="chevron-right"></i>
                     </button>
                 </div>
@@ -1090,33 +1070,44 @@
             <script>
                 (function() {
                     const initCarousels = () => {
-                        // Find all wrappers
-                        const groups = document.querySelectorAll('.group.relative.max-w-6xl');
+                        // Find all gallery wrappers
+                        const galleries = document.querySelectorAll('.gallery-wrapper');
 
-                        groups.forEach(group => {
-                            const container = group.querySelector('.carousel-container');
-                            const next = group.querySelector('.nextBtn');
-                            const prev = group.querySelector('.prevBtn');
+                        galleries.forEach(gallery => {
+                            const container = gallery.querySelector('.carousel-container');
+                            const next = gallery.querySelector('.next-btn');
+                            const prev = gallery.querySelector('.prev-btn');
 
                             if (!container || !next || !prev) return;
 
-                            const scrollAmount = () => {
-                                const item = container.querySelector('div');
-                                return item ? item.offsetWidth + 24 : 300;
+                            // Function to determine scroll distance based on item width
+                            const getScrollAmount = () => {
+                                const firstItem = container.querySelector('div');
+                                // Item width + the 24px gap (gap-6 in tailwind)
+                                return firstItem ? firstItem.offsetWidth + 24 : 300;
                             };
 
                             next.addEventListener('click', () => {
-                                container.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+                                container.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
                             });
 
                             prev.addEventListener('click', () => {
-                                container.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+                                container.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
                             });
                         });
                         
-                        if (window.lucide) lucide.createIcons();
+                        // Re-initialize icons if Lucide is present
+                        if (window.lucide) {
+                            lucide.createIcons();
+                        }
                     };
-                    window.addEventListener('load', initCarousels);
+
+                    // Initialize when DOM is ready
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', initCarousels);
+                    } else {
+                        initCarousels();
+                    }
                 })();
             </script>
 
