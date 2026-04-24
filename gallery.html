@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAVAS Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JAVAS Gallery | Mobile Optimized</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -13,98 +13,98 @@
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
-        .modal-bg { background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(15px); }
-        .img-hidden { opacity: 0; transform: scale(0.95); }
-        #lightbox-img { transition: all 0.3s ease-in-out; }
+        .modal-bg { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(15px); }
+        
+        /* Smooth transitions for mobile */
+        #lightbox-img { 
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; 
+        }
+        
+        /* Prevent pull-to-refresh when gallery is open */
+        .overscroll-none { overscroll-behavior: none; }
     </style>
 </head>
 
 <body class="min-h-screen bg-slate-50 font-sans text-gray-800 relative selection:bg-orange-200">
 
-    <div class="fixed top-[-5%] left-[-5%] w-[30rem] h-[30rem] bg-orange-200/40 rounded-full mix-blend-multiply filter blur-[100px] z-0"></div>
-    <div class="fixed bottom-[-5%] right-[-5%] w-[35rem] h-[35rem] bg-rose-200/40 rounded-full mix-blend-multiply filter blur-[100px] z-0"></div>
+    <div class="hidden sm:block fixed top-[-5%] left-[-5%] w-[30rem] h-[30rem] bg-orange-200/40 rounded-full mix-blend-multiply filter blur-[100px] z-0"></div>
+    <div class="hidden sm:block fixed bottom-[-5%] right-[-5%] w-[35rem] h-[35rem] bg-rose-200/40 rounded-full mix-blend-multiply filter blur-[100px] z-0"></div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
         
-        <header class="p-6 sm:p-10 max-w-7xl mx-auto w-full">
-            <a href="index.html" class="flex items-center gap-2 text-orange-600 font-bold hover:text-rose-600 transition-colors mb-6">
+        <header class="p-4 sm:p-10 max-w-7xl mx-auto w-full">
+            <a href="index.html" class="flex items-center gap-2 text-orange-600 font-bold hover:text-rose-600 transition-colors mb-4">
                 <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                <span>Back to Home</span>
+                <span class="text-sm uppercase tracking-wider">Home</span>
             </a>
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
+            <h1 class="text-2xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
                 Event <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-rose-600">Gallery</span>
             </h1>
         </header>
 
-        <main class="flex-1 max-w-7xl mx-auto w-full px-6 pb-20">
-            <div id="dynamic-gallery-wrapper" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 pb-20">
+            <div id="dynamic-gallery-wrapper" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
             </div>
         </main>
 
-        <footer class="bg-white/40 backdrop-blur-md py-8 text-center text-sm text-gray-500 border-t border-white/20">
+        <footer class="bg-white/40 backdrop-blur-md py-6 text-center text-xs text-gray-500 border-t border-white/20">
             <p>© 2026 JAVAS Karimnagar.</p>
         </footer>
     </div>
 
-    <div id="lightbox" class="fixed inset-0 z-[100] hidden flex flex-col modal-bg">
-        <div class="w-full flex justify-end p-6 z-[110]">
-            <button onclick="closeLightbox()" class="text-white/60 hover:text-white transition-colors p-3 bg-white/10 rounded-full backdrop-blur-md">
-                <i data-lucide="x" class="w-8 h-8"></i>
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden flex flex-col modal-bg overscroll-none">
+        <div class="w-full flex justify-between items-center p-4 z-[110]">
+            <span id="img-counter" class="text-white/70 font-mono text-sm sm:text-lg">01 / 08</span>
+            <button onclick="closeLightbox()" class="text-white/80 p-2 bg-white/10 rounded-full">
+                <i data-lucide="x" class="w-6 h-6 sm:w-8 h-8"></i>
             </button>
         </div>
-        <div class="flex-1 relative flex items-center justify-center px-4">
-            <button onclick="changeImage(-1)" class="absolute left-2 md:left-8 text-white/30 hover:text-orange-400 transition-all p-3 z-[110]">
-                <i data-lucide="chevron-left" class="w-10 h-10 md:w-16 md:h-16"></i>
+
+        <div class="flex-1 relative flex items-center justify-center px-2">
+            <button onclick="changeImage(-1)" class="absolute left-0 h-full w-16 flex items-center justify-center text-white/20 active:text-orange-400 transition-all z-[110]">
+                <i data-lucide="chevron-left" class="w-10 h-10"></i>
             </button>
-            <img id="lightbox-img" src="" class="max-h-[70vh] max-w-full rounded-lg shadow-2xl object-contain" alt="Gallery View">
-            <button onclick="changeImage(1)" class="absolute right-2 md:right-8 text-white/30 hover:text-orange-400 transition-all p-3 z-[110]">
-                <i data-lucide="chevron-right" class="w-10 h-10 md:w-16 md:h-16"></i>
+            
+            <img id="lightbox-img" src="" class="max-h-[65vh] max-w-full rounded shadow-2xl object-contain" alt="Gallery View">
+            
+            <button onclick="changeImage(1)" class="absolute right-0 h-full w-16 flex items-center justify-center text-white/20 active:text-orange-400 transition-all z-[110]">
+                <i data-lucide="chevron-right" class="w-10 h-10"></i>
             </button>
         </div>
-        <div class="w-full p-8 pb-12 flex flex-col items-center gap-4 bg-gradient-to-t from-black via-black/60 to-transparent">
-            <a id="download-btn" href="" download class="flex items-center gap-3 bg-orange-500 text-white px-12 py-4 rounded-full font-bold shadow-2xl hover:bg-white hover:text-orange-600 transition-all duration-300 transform active:scale-95">
+
+        <div class="w-full p-6 pb-10 flex flex-col items-center gap-4">
+            <a id="download-btn" href="" download class="w-full max-w-xs flex items-center justify-center gap-3 bg-orange-500 text-white py-4 rounded-xl font-bold shadow-xl active:scale-95 transition-transform">
                 <i data-lucide="download" class="w-5 h-5"></i>
-                DOWNLOAD IMAGE
+                SAVE IMAGE
             </a>
         </div>
     </div>
 
     <script>
-        // --- CONFIGURATION ---
         const config = {
             folderPath: 'images/AS2024/',
             baseName: 'image',
-            defaultExtension: '.png', // Most images are this
-            // Exceptions Map: index (image number) : extension
-            exceptions: {
-                2: '.png',  // img2 is actually a jpg
-                5: '.png', // img5 is a jpeg
-                8: '.png'  // img8 is a webp
-            },
+            defaultExtension: '.png',
+            exceptions: {}, // Map exceptions here if needed (e.g. 2: '.jpg')
             totalImages: 8
         };
 
         const galleryImages = [];
         const wrapper = document.getElementById('dynamic-gallery-wrapper');
 
-        // --- RENDER GALLERY ---
         function renderGallery() {
             for (let i = 1; i <= config.totalImages; i++) {
-                // Determine extension: Check exceptions first, else use default
                 const fileExt = config.exceptions[i] || config.defaultExtension;
-                
                 const imgPath = `${config.folderPath}${config.baseName}${i}${fileExt}`;
                 galleryImages.push(imgPath);
 
                 const col = document.createElement('div');
-                col.className = "group relative aspect-square glass-card rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer";
+                col.className = "group relative aspect-square glass-card rounded-2xl overflow-hidden shadow-sm active:opacity-80 transition-all cursor-pointer";
                 
-                // Using object-cover ensures that even if images are different sizes, 
-                // they fit perfectly in the square grid
                 col.innerHTML = `
                     <img src="${imgPath}" 
                         alt="Image ${i}" 
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                        class="w-full h-full object-cover transition-transform duration-700" 
                         loading="lazy">
                 `;
                 
@@ -113,7 +113,6 @@
             }
         }
 
-        // --- LIGHTBOX LOGIC ---
         let currentIndex = 0;
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -133,14 +132,19 @@
         }
 
         function updateLightbox() {
-            lightboxImg.classList.add('img-hidden');
+            lightboxImg.style.opacity = '0';
+            lightboxImg.style.transform = 'scale(0.95)';
+            
             setTimeout(() => {
                 const src = galleryImages[currentIndex];
                 lightboxImg.src = src;
                 downloadBtn.href = src;
-                counter.innerText = `${(currentIndex + 1).toString().padStart(2, '0')} / ${galleryImages.length.toString().padStart(2, '0')}`;
-                lightboxImg.classList.remove('img-hidden');
-            }, 150);
+                if(counter) {
+                    counter.innerText = `${(currentIndex + 1).toString().padStart(2, '0')} / ${galleryImages.length.toString().padStart(2, '0')}`;
+                }
+                lightboxImg.style.opacity = '1';
+                lightboxImg.style.transform = 'scale(1)';
+            }, 100);
         }
 
         function changeImage(dir) {
@@ -148,17 +152,13 @@
             updateLightbox();
         }
 
-        // Initialize
         renderGallery();
         lucide.createIcons();
 
-        // Keyboard support
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('hidden')) return;
-            if (e.key === "ArrowRight") changeImage(1);
-            if (e.key === "ArrowLeft") changeImage(-1);
-            if (e.key === "Escape") closeLightbox();
-        });
+        // Close lightbox on clicking background
+        lightbox.onclick = (e) => {
+            if (e.target === lightbox) closeLightbox();
+        };
     </script>
 </body>
 </html>
