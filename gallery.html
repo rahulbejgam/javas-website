@@ -83,17 +83,17 @@
     <script>
         const config = {
             folderPath: 'images/AS2026/',
-            baseName: 'image_(',
-            defaultExtension: ').jpg',
+            baseName: 'image',
+            defaultExtension: '.jpg',
             exceptions: {}, // Map exceptions here if needed (e.g. 2: '.jpg')
-            totalImages: 8
+            totalImages: 67
         };
 
         const galleryImages = [];
         const wrapper = document.getElementById('dynamic-gallery-wrapper');
 
         function renderGallery() {
-            for (let i = 1; i <= config.totalImages; i++) {
+            for (let i = 100; i <= config.totalImages; i++) {
                 const fileExt = config.exceptions[i] || config.defaultExtension;
                 const imgPath = `${config.folderPath}${config.baseName}${i}${fileExt}`;
                 galleryImages.push(imgPath);
