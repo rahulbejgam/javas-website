@@ -54,7 +54,6 @@
 
     <div id="lightbox" class="fixed inset-0 z-[100] hidden flex flex-col modal-bg overscroll-none">
         <div class="w-full flex justify-between items-center p-4 z-[110]">
-            <span id="img-counter" class="text-white/70 font-mono text-sm sm:text-lg">01 / 08</span>
             <button onclick="closeLightbox()" class="text-white/80 p-2 bg-white/10 rounded-full">
                 <i data-lucide="x" class="w-6 h-6 sm:w-8 h-8"></i>
             </button>
@@ -113,7 +112,7 @@
             }
         }
 
-        let currentIndex = 0;
+        let currentIndex = 100;
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const downloadBtn = document.getElementById('download-btn');
