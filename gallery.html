@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JAVAS Gallery | Mobile Optimized</title>
+    <title>JAVAS Gallery</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -38,7 +38,7 @@
                 <span class="text-sm uppercase tracking-wider">Home</span>
             </a>
             <h1 class="text-2xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
-                Event <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-rose-600">Gallery</span>
+                పుణ్యాహవాచనం <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-rose-600">Photo  gallery</span>
             </h1>
         </header>
 
@@ -85,14 +85,15 @@
             baseName: 'img',
             defaultExtension: '.jpg',
             exceptions: {}, // Map exceptions here if needed (e.g. 2: '.jpg')
-            totalImages: 167
+            totalImages: 167,
+            startIndex: 100
         };
 
         const galleryImages = [];
         const wrapper = document.getElementById('dynamic-gallery-wrapper');
 
         function renderGallery() {
-            for (let i = 100; i <= config.totalImages; i++) {
+            for (let i = config.startIndex; i < config.totalImages; i++) {
                 const fileExt = config.exceptions[i] || config.defaultExtension;
                 const imgPath = `${config.folderPath}${config.baseName}${i}${fileExt}`;
                 galleryImages.push(imgPath);
@@ -107,12 +108,12 @@
                         loading="lazy">
                 `;
                 
-                col.onclick = () => openLightbox(i - 1);
+                col.onclick = () => openLightbox(i);
                 wrapper.appendChild(col);
             }
         }
 
-        let currentIndex = 100;
+        let currentIndex = config.startIndex;
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const downloadBtn = document.getElementById('download-btn');
@@ -135,7 +136,9 @@
             lightboxImg.style.transform = 'scale(0.95)';
             
             setTimeout(() => {
-                const src = galleryImages[currentIndex];
+                console.log(galleryImages.length, currentIndex , config.startIndex);
+                const src = galleryImages[currentIndex % config.startIndex];
+                console.log(src);
                 lightboxImg.src = src;
                 downloadBtn.href = src;
                 if(counter) {
