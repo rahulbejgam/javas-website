@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Bejgam</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Exact custom layout engines & viewport rule systems from JAVAS original layout */
+        .hidden-section { display: none !important; }
+        
+        .animate-fade-in { 
+            animation: fadeIn 0.5s ease-out forwards; 
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Hide scrollbars for sliding nav structures */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom Cross-fading Dual Language Animation Engine (40s complete loop) */
+        @keyframes slow-fade-en {
+            0%, 48% { opacity: 1; transform: scale(1); visibility: visible; }
+            50%, 98% { opacity: 0; transform: scale(0.98); visibility: hidden; }
+            100% { opacity: 1; transform: scale(1); visibility: visible; }
+        }
+
+        @keyframes slow-fade-te {
+            0%, 48% { opacity: 0; transform: scale(0.98); visibility: hidden; }
+            50%, 98% { opacity: 1; transform: scale(1); visibility: visible; }
+            100% { opacity: 0; transform: scale(0.98); visibility: hidden; }
+        }
+
+        @keyframes progress-timer {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .animate-en { animation: slow-fade-en 30s infinite ease-in-out; }
+        .animate-te { animation: slow-fade-te 30s infinite ease-in-out; }
+        .animate-progress { animation: progress-timer 15s infinite linear; }
+
+        .stack-parent {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: start;
+        }
+        .stack-child {
+            grid-area: 1 / 1 / 2 / 2;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-gray-800 relative overflow-x-hidden selection:bg-orange-200 selection:text-orange-900">
+
+    <div class="fixed top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-orange-300/40 rounded-full mix-blend-multiply filter blur-[100px] animate-pulse z-0"></div>
+    <div class="fixed top-[20%] right-[-10%] w-[35rem] h-[35rem] bg-rose-300/40 rounded-full mix-blend-multiply filter blur-[120px] animate-pulse delay-700 z-0"></div>
+    <div class="fixed bottom-[-10%] left-[20%] w-[45rem] h-[45rem] bg-amber-200/40 rounded-full mix-blend-multiply filter blur-[100px] animate-pulse delay-1000 z-0"></div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        
+        <header class="pt-6 px-4 sm:px-8">
+            <div class="max-w-7xl mx-auto bg-white/50 backdrop-blur-2xl shadow-[0_20px_50px_rgb(0,0,0,0.06)] rounded-3xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 transition-all duration-500">
+                
+                <div class="flex flex-col items-center shrink-0">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full shadow-[0_10px_30px_rgb(0,0,0,0.1)] flex items-center justify-center bg-gradient-to-br from-orange-400 to-rose-500 text-white overflow-hidden relative group">
+                        <i data-lucide="terminal" class="w-10 h-10 transition-transform duration-500 group-hover:scale-110"></i>
+                    </div>
+                </div>
+
+                <div class="flex-1 text-center px-4 overflow-visible">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-rose-600 tracking-tight uppercase drop-shadow-sm mb-1 leading-tight">
+                        Rahul Bejgam
+                    </h1>
+                    <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-700 tracking-[0.12em] uppercase opacity-90 mt-2">
+                        Salesforce Developer & IoT Enthusiast
+                    </h2>
+
+                    <div class="flex items-center justify-center gap-2 mt-4 text-gray-600 font-medium bg-white/50 backdrop-blur-md w-fit mx-auto px-5 py-2 rounded-full shadow-sm border border-orange-50/50">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-orange-500"></i>
+                        <p class="text-[11px] sm:text-xs md:text-sm uppercase tracking-widest font-bold">
+                            Telangana, India
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center shrink-0">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full shadow-[0_10px_30px_rgb(0,0,0,0.1)] flex items-center justify-center bg-white/70 backdrop-blur-md overflow-hidden text-center flex-col p-2 border border-orange-100">
+                        <i data-lucide="cpu" class="w-6 h-6 text-orange-500 mb-1"></i>
+                        <span class="text-[9px] font-extrabold tracking-wider text-gray-600 uppercase">IoT & WEB<br>ENGINEER</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <nav class="sticky top-6 z-50 flex justify-center mt-6 px-4">
+            <div class="flex flex-wrap justify-center items-center p-1.5 bg-white/60 backdrop-blur-2xl shadow-[0_10px_30px_rgb(0,0,0,0.08)] rounded-full gap-1 sm:gap-2 max-w-full overflow-x-auto no-scrollbar" id="nav-container">
+                
+                <button onclick="switchTab('ABOUT_ME')" id="nav-ABOUT_ME" class="nav-btn flex items-center gap-2 px-4 sm:px-5 py-2.5 m-0.5 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-full transition-all duration-300 ease-out whitespace-nowrap bg-white text-orange-600 shadow-[0_5px_15px_rgb(0,0,0,0.05)] scale-100">
+                    <i data-lucide="user" class="w-[18px] h-[18px]"></i>
+                    <span class="nav-label">About Me</span>
+                </button>
+
+                <button onclick="switchTab('PROJECT_HUB')" id="nav-PROJECT_HUB" class="nav-btn flex items-center gap-2 px-4 sm:px-5 py-2.5 m-0.5 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-full transition-all duration-300 ease-out whitespace-nowrap text-gray-600 hover:bg-white/50 hover:text-gray-900">
+                    <i data-lucide="layers" class="w-[18px] h-[18px]"></i>
+                    <span class="nav-label hidden sm:inline">Web Projects</span>
+                </button>
+
+                <button onclick="switchTab('PROFILES')" id="nav-PROFILES" class="nav-btn flex items-center gap-2 px-4 sm:px-5 py-2.5 m-0.5 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-full transition-all duration-300 ease-out whitespace-nowrap text-gray-600 hover:bg-white/50 hover:text-gray-900">
+                    <i data-lucide="external-link" class="w-[18px] h-[18px]"></i>
+                    <span class="nav-label hidden sm:inline">Professional Profiles</span>
+                </button>
+
+            </div>
+        </nav>
+
+        <main class="flex-1 w-full max-w-7xl mx-auto p-4 sm:p-8 mt-4 mb-12 relative">
+            
+            <section id="ABOUT_ME" class="tab-content animate-fade-in space-y-12">
+                
+                <div class="max-w-4xl mx-auto relative mt-4">
+                    <div class="absolute -top-6 -left-6 bg-white/80 backdrop-blur-xl p-4 rounded-full shadow-[0_10px_30px_rgb(0,0,0,0.08)] z-10 text-orange-400">
+                        <i data-lucide="quote" class="w-8 h-8"></i>
+                    </div>
+                    <blockquote class="bg-white/60 backdrop-blur-2xl p-8 sm:p-12 rounded-[2rem] shadow-[0_20px_50px_rgb(0,0,0,0.05)] text-center relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-orange-400 to-rose-400"></div>
+                        <p class="text-xl sm:text-2xl font-serif italic text-gray-800 leading-relaxed relative z-10 drop-shadow-sm">
+                            "Building integrated custom cloud automation while turning complex tech concepts into friendly everyday solutions."
+                        </p>
+                    </blockquote>
+                </div>
+
+                <div class="w-full max-w-4xl mx-auto">
+                    <div class="bg-white/70 backdrop-blur-2xl p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] shadow-[0_20px_50px_rgb(0,0,0,0.05)] border border-white/40">
+                        <div class="space-y-6">
+                            
+                            <div class="stack-parent min-h-[3rem]">
+                                <h3 class="stack-child animate-en text-2xl sm:text-4xl font-extrabold text-gray-800 tracking-tight">
+                                    Personal <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-rose-500">Profile</span>
+                                </h3>
+                                <h3 class="stack-child animate-te text-2xl sm:text-4xl font-extrabold text-gray-800 tracking-tight">
+                                    నా <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-rose-500">గురించి</span>
+                                </h3>
+                            </div>
+
+                            <div class="stack-parent min-h-[16rem] sm:min-h-[10rem]">
+                                <div class="stack-child animate-en space-y-4">
+                                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed text-justify font-medium">
+                                        I am an easygoing technology enthusiast who looks at software engineering as a playground for innovation. By day, I specialize as a <strong>Salesforce Developer</strong>, custom-tailoring cloud platforms and structuring workflows. When off the clock, my real passion lies in experimenting, coding, and building new components at the intersection of the Internet of Things (IoT) and cutting-edge Web technologies.
+                                    </p>
+                                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed text-justify font-medium">
+                                        Beyond writing clean architectures and setting up device nodes, I am a massive fan of movies and comedy! I believe life, much like programming, is best handled with a healthy sense of humor and a relaxed mind.
+                                    </p>
+                                </div>
+
+                                <div class="stack-child animate-te space-y-4">
+                                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed text-justify font-medium">
+                                        నేను టెక్నాలజీని ఎంతో ఇష్టపడే ఒక సాధారణ మరియు స్నేహపూర్వక వ్యక్తిని. నేను ప్రస్తుతం <strong>సేల్స్‌ఫోర్స్ డెవలపర్ (Salesforce Developer)</strong>గా పని చేస్తున్నాను. ఖాళీ సమయాల్లో ఇంటర్నెట్ ఆఫ్ థింగ్స్ (IoT) మరియు సరికొత్త వెబ్ టెక్నాలజీలపై కొత్త ప్రయోగాలు చేయడం, సరికొత్త సిస్టమ్స్ బిల్డ్ చేయడం నా హాబీ.
+                                    </p>
+                                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed text-justify font-medium">
+                                        సాంకేతిక పరిజ్ఞానంతో పాటు, నాకు సినిమాలు చూడటం మరియు కామెడీ అంటే చాలా ఇష్టం. కోడింగ్ సమస్యలనైనా, జీవితాన్నైనా కాస్త నవ్వుతూ సరదాగా సానుకూల దృక్పథంతో స్వీకరించడమే నా శైలి!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-gray-100">
+                                <div class="w-full bg-gray-100 h-1 rounded-full overflow-hidden">
+                                    <div class="animate-progress bg-gradient-to-r from-orange-500 to-rose-500 h-full"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="PROJECT_HUB" class="tab-content hidden-section animate-fade-in flex flex-col items-center">
+                <h3 class="text-4xl font-extrabold text-gray-800 mb-4 tracking-tight text-center drop-shadow-sm">
+                    Web <span class="text-orange-500 font-light">Deployments</span>
+                </h3>
+                <p class="text-gray-600 mb-12 font-medium text-center">A curation of live production ecosystems and custom web properties</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
+                    
+                    <div class="bg-white/60 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] p-6 sm:p-8 hover:bg-white/80 hover:-translate-y-1.5 transition-all duration-400 border border-white/50 flex flex-col justify-between group">
+                        <div>
+                            <div class="h-44 w-full bg-gradient-to-br from-orange-50 to-rose-100 rounded-2xl mb-6 flex items-center justify-center text-orange-500/80 group-hover:scale-[1.01] transition-transform">
+                                <i data-lucide="globe" class="w-14 h-14"></i>
+                            </div>
+                            <h4 class="text-2xl font-extrabold text-gray-800 mb-2">JAVAS Platform</h4>
+                            <p class="text-gray-600 leading-relaxed font-medium text-sm mb-6">
+                                The official custom community portal for Jyothinagar Arya Vysya Abhyudaya Sangam, optimizing localized community visibility and cross-device communication flows.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                            <span class="text-xs font-bold text-rose-500 uppercase tracking-widest bg-white/95 py-1 px-3 rounded-full shadow-sm">javasknr.org</span>
+                            <a href="https://javasknr.org" target="_blank" class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-orange-600 transition-colors">
+                                Launch Site <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/60 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] p-6 sm:p-8 hover:bg-white/80 hover:-translate-y-1.5 transition-all duration-400 border border-white/50 flex flex-col justify-between group">
+                        <div>
+                            <div class="h-44 w-full bg-gradient-to-br from-amber-50 to-orange-100 rounded-2xl mb-6 flex items-center justify-center text-amber-500/80 group-hover:scale-[1.01] transition-transform">
+                                <i data-lucide="book-open" class="w-14 h-14"></i>
+                            </div>
+                            <h4 class="text-2xl font-extrabold text-gray-800 mb-2">eFlip Magazine</h4>
+                            <p class="text-gray-600 leading-relaxed font-medium text-sm mb-6">
+                                An interactive digital media reading network engine structured for rendering flipping documents dynamically with clean cross-browser layout compatibility. A start-up started with my friends during my engineering days.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                            <span class="text-xs font-bold text-rose-500 uppercase tracking-widest bg-white/95 py-1 px-3 rounded-full shadow-sm">eflipmagazine.com</span>
+                            <a href="https://www.eflipmagazine.com/" target="_blank" class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-orange-600 transition-colors">
+                                Launch Site <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/60 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] p-6 sm:p-8 hover:bg-white/80 hover:-translate-y-1.5 transition-all duration-400 border border-white/50 flex flex-col justify-between group">
+                        <div>
+                            <div class="h-44 w-full bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl mb-6 flex items-center justify-center text-blue-500/80 group-hover:scale-[1.01] transition-transform">
+                                <i data-lucide="users" class="w-14 h-14"></i>
+                            </div>
+                            <h4 class="text-2xl font-extrabold text-gray-800 mb-2">Batch 8 ECE Portal</h4>
+                            <p class="text-gray-600 leading-relaxed font-medium text-sm mb-6">
+                                A targeted knowledge base and hub built via Google Sites specifically structured for the archive and timeline management of Electronics & Communication Engineering network groups.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                            <span class="text-xs font-bold text-rose-500 uppercase tracking-widest bg-white/95 py-1 px-3 rounded-full shadow-sm">Google Sites</span>
+                            <a href="https://sites.google.com/view/batch8-ece/home" target="_blank" class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-orange-600 transition-colors">
+                                Launch Site <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/60 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_15px_40px_rgb(0,0,0,0.05)] p-6 sm:p-8 hover:bg-white/80 hover:-translate-y-1.5 transition-all duration-400 border border-white/50 flex flex-col justify-between group">
+                        <div>
+                            <div class="h-44 w-full bg-gradient-to-br from-slate-100 to-zinc-200 rounded-2xl mb-6 flex items-center justify-center text-slate-700/80 group-hover:scale-[1.01] transition-transform">
+                                <i data-lucide="code-2" class="w-14 h-14"></i>
+                            </div>
+                            <h4 class="text-2xl font-extrabold text-gray-800 mb-2">Personal Sandbox Space</h4>
+                            <p class="text-gray-600 leading-relaxed font-medium text-sm mb-6">
+                                A lightweight custom static application prototype repository hosted on w3spaces environments for testing vector elements and client scripts.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+                            <span class="text-xs font-bold text-rose-500 uppercase tracking-widest bg-white/95 py-1 px-3 rounded-full shadow-sm">w3spaces</span>
+                            <a href="https://rahul21.w3spaces.com/" target="_blank" class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-orange-600 transition-colors">
+                                Launch Site <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="PROFILES" class="tab-content hidden-section animate-fade-in flex flex-col items-center">
+                <h3 class="text-4xl font-extrabold text-gray-800 mb-4 tracking-tight text-center drop-shadow-sm">
+                    Professional <span class="text-orange-500 font-light">Footprint</span>
+                </h3>
+                <p class="text-gray-600 mb-12 font-medium text-center">Verified registries and industry credentials across engineering ecosystems</p>
+
+                <div class="max-w-2xl w-full bg-white/60 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_20px_50px_rgb(0,0,0,0.05)] p-8 border border-white/50 space-y-6">
+                    
+                    <a href="https://www.linkedin.com/in/rahulbejgam/" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-white/40 hover:bg-white/80 transition-all duration-300 shadow-sm group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-600/20 group-hover:scale-105 transition-transform">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 mb-0.5">Professional Network</p>
+                                <p class="text-base font-bold text-gray-700">LinkedIn Profile</p>
+                            </div>
+                        </div>
+                        <i data-lucide="external-link" class="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors mr-2"></i>
+                    </a>
+
+                    <a href="https://www.salesforce.com/trailblazer/rahulbejgam" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-white/40 hover:bg-white/80 transition-all duration-300 shadow-sm group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+                                <i data-lucide="cloud" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 mb-0.5">Salesforce Developer</p>
+                                <p class="text-base font-bold text-gray-700">Trailhead Trailblazer Profile</p>
+                            </div>
+                        </div>
+                        <i data-lucide="external-link" class="w-4 h-4 text-gray-400 group-hover:text-cyan-500 transition-colors mr-2"></i>
+                    </a>
+
+                    <a href="https://ieeexplore.ieee.org/author/37088762305" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-white/40 hover:bg-white/80 transition-all duration-300 shadow-sm group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sky-800 text-white flex items-center justify-center shrink-0 shadow-md shadow-sky-800/20 group-hover:scale-105 transition-transform">
+                                <i data-lucide="file-text" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 mb-0.5">Academic Research Registry</p>
+                                <p class="text-base font-bold text-gray-700">IEEE Xplore Author Profile</p>
+                            </div>
+                        </div>
+                        <i data-lucide="external-link" class="w-4 h-4 text-gray-400 group-hover:text-sky-800 transition-colors mr-2"></i>
+                    </a>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="mt-auto pb-8 px-4 text-center">
+            <div class="max-w-4xl mx-auto bg-white/40 backdrop-blur-xl border border-white/30 rounded-2xl py-4 px-6 shadow-sm">
+                <p class="text-xs sm:text-sm text-gray-600 font-medium">
+                    &copy; 2026 Rahul Bejgam. Designed in sync with JAVAS.
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Initialize Lucide iconography vector renderings on loading completion
+        lucide.createIcons();
+
+        function switchTab(tabId) {
+            // 1. Hide all layout segments
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.add('hidden-section');
+            });
+
+            // 2. Uncover the target selection area
+            const targetSection = document.getElementById(tabId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden-section');
+            }
+
+            // 3. Clear active navigation button metrics
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const inactiveClasses = ['text-gray-600', 'hover:bg-white/50', 'hover:text-gray-900'];
+            const activeClasses = ['bg-white', 'text-orange-600', 'shadow-[0_5px_15px_rgb(0,0,0,0.05)]', 'scale-100'];
+            
+            navButtons.forEach(btn => {
+                btn.classList.remove(...activeClasses);
+                btn.classList.add(...inactiveClasses);
+                
+                const label = btn.querySelector('.nav-label');
+                if(label) {
+                    label.classList.add('hidden', 'sm:inline');
+                }
+            });
+
+            // 4. Highlight active selection node
+            const targetBtn = document.getElementById('nav-' + tabId);
+            if (targetBtn) {
+                targetBtn.classList.remove(...inactiveClasses);
+                targetBtn.classList.add(...activeClasses);
+                
+                const targetLabel = targetBtn.querySelector('.nav-label');
+                if(targetLabel) {
+                    targetLabel.classList.remove('hidden', 'sm:inline');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
